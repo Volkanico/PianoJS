@@ -8,4 +8,20 @@
     background:#222;
   }
   
+  ul {
+    height:22em;
+    width:34em;
+    margin:5em auto;
+    padding:3em 0 0 3em;
+    position:relative;
+    border:1px solid #160801;
+    border-radius:1em;
+    background:linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0)),url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/187/vwood.png);
+  }
+  
+  li {
+    list-style:none;
+    position:relative;
+    float:left
+  }
   
