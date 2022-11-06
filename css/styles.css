@@ -94,7 +94,6 @@ ul .white:active {
     width: 100%;
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(../BackgroundImg/FondoPiano.jpg);
     border-radius: 1em;
-
     border: 1px solid #160801;
 }
 
