@@ -10,19 +10,20 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: [line1] 30% [line2] 40% [line3] 30% [line4];
-    grid-template-rows: [row1] 100px [row2] 400px [row3] 100px [row4]100px [row5]100px [row6];
-  
-  }
-  .piano {
+    grid-template-columns: [line1] 25% [line2] 50% [line3] 25% [line4];
+    grid-template-rows: [row1] 50px [row2] auto [row3] 30px [row4] auto [row5]100px [row6];
+}
+
+.piano {
     grid-column-start: line2;
-  grid-column-end: line3;
-  grid-row-start: row2;
-  grid-row-end: row3;
-  }
+    grid-column-end: line3;
+    grid-row-start: row2;
+    grid-row-end: row3;
+}
+
 
 ul {
-    display:flex;
+    display: flex;
     flex-wrap: nowrap;
     height: 100%;
     width: 100%;
@@ -36,6 +37,7 @@ ul {
 li {
     list-style: none;
 }
+
 
 ul .white {
     height: 16em;
@@ -70,10 +72,112 @@ ul .white:active {
     background: linear-gradient(to right, #444 0%, #222 100%)
 }
 
-.a,.b,.c,.d,.f,.g, .black {
+.a,
+.b,
+.c,
+.d,
+.f,
+.g,
+.black {
     margin: 0 0 0 -1em
 }
-.white a {
-    margin-left:10px;
+
+.formulari {
+    grid-column-start: line2;
+    grid-column-end: line3;
+    grid-row-start: row4;
+    grid-row-end: row5;
+    display: grid;
+    grid-template-columns: [line1] 20% [line2] 12% [line3] 12% [line4] 12% [line5] 12% [line6] 12% [line7] 20% [line8];
+    grid-template-rows: [row1] 50px [row2] auto [row3] 50px [row4] auto [row5] 50px [row6];
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(../BackgroundImg/FondoPiano.jpg);
+    border-radius: 1em;
+
+    border: 1px solid #160801;
 }
 
+.white a {
+    margin-left: 10px;
+}
+
+div h3 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: rgb(231, 52, 52);
+    border-radius: 8px;
+    height: 40px;
+    width: 110px;
+    box-shadow: 0px 0px 0px 2px rgb(147, 147, 147);
+    border-color: white;
+    border: 1px;
+    margin-left: 37%;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.esborrar {
+    grid-column-start: line2;
+    grid-column-end: line7;
+    grid-row-start: row2;
+    grid-row-end: row3;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.reproduir {
+    grid-column-start: line2;
+    grid-column-end: line7;
+    grid-row-start: row4;
+    grid-row-end: row5;
+    display: grid;
+    grid-template-columns: [line1] 50% [line2] 50% [line3];
+    grid-template-rows: [row1] auto [row2] auto [row3] 10px [row4] auto [row5];
+    height: 100%;
+    width: 100%;
+    
+    width: 100%;
+    height: 100%;
+}
+.reproduir h1 {
+    grid-column-start: line1;
+    grid-column-end: line3;
+    grid-row-start: row1;
+    grid-row-end: row2;
+    text-align: center;
+    margin-bottom: 1em;
+}
+.botoMusica1 {
+    grid-column-start: line2;
+    grid-column-end: line3;
+    grid-row-start: row2;
+    grid-row-end: row3;
+}
+.botoMusica2 {
+    grid-column-start: line2;
+    grid-column-end: line3;
+    grid-row-start: row4;
+    grid-row-end: row5;
+}
+
+.reproduir div {
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+    color:rgb(231, 52, 52);
+    font-weight: bold;
+}
