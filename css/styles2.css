@@ -48,5 +48,25 @@ a {
     box-shadow: 0px 0px 0px 1px rgb(147, 147, 147);
     border-color: lightgray;
     border-radius:5px;
+    grid-column-start: line1;
+    grid-column-end: line2;
+    grid-row-start: row2;
+    grid-row-end: row3;
    
+}
+
+#table {
+    grid-column-start: line1;
+    grid-column-end: line2;
+    grid-row-start: row3;
+    grid-row-end: row4;
+}
+table{
+    width:100%;
+}
+tr {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    
 }

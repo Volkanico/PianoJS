@@ -42,10 +42,8 @@ function cercador(partitures) {
     }
     
 
-
-
-
-
+    
+          
 
 
 
@@ -65,7 +63,8 @@ function guardarNotaANotesTotals (nomNotesTotals) {
 //console.log(cerca);
 //guardarNotaANotesTotals(nomNotesTotals);
 //console.log(cerca);
-cercador(partitures)
+cercador(partitures);
+
 
 
 
