@@ -43,7 +43,7 @@ function cercador(partitures) {
 
 var context= new AudioContext();
  
-function jsNota(frecuencia){
+function nota(frecuencia){
         var o= context.createOscillator();
         g=context.createGain();
         o.connect(g);
