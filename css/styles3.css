@@ -1,0 +1,51 @@
+body {
+    background: url(../BackgroundImg/FondoPiano.jpg);
+}
+h1 {
+    text-align: center;
+    font-size: 6em;
+}
+
+body {
+    display: grid;
+    grid-template-columns: [line1] 30% [line2] 40% [line3] 30% [line4];
+    grid-template-rows: [row1] auto [row2] auto [row3] auto [row4];
+}
+h1{
+    grid-column-start: line1;
+    grid-column-end: line4;
+    grid-row-start: row1;
+    grid-row-end: row2;
+}
+form{
+    grid-column-start: line2;
+    grid-column-end: line3;
+    grid-row-start: row2;
+    grid-row-end: row3;
+    display:flex;
+    flex-direction: column;
+}
+form * {
+    margin: 1em;
+}
+label {
+    margin-bottom:0em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+input {
+    margin-top:0em;
+    padding:0.3em;
+    border-radius:5px;
+}
+
+button {
+    color:white;
+    font-weight: bold;
+    background-color: rgb(231, 52, 52);
+    margin-left:1em;
+    margin-right:1em;
+    padding-top:1em;
+    padding-bottom:1em;
+    border-radius:5px;
+}
