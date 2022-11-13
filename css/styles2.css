@@ -70,6 +70,15 @@ tr {
     flex-wrap: nowrap;
     padding:0.1em;
 }
+td button {
+    background-color:unset;
+}
+td button img {
+    width:1em;
+    height:1em;
+    float:left;
+    text-align:baseline;
+}
 th{
     width:100%;
     border: solid white 1px;

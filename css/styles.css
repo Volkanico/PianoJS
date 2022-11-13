@@ -24,13 +24,11 @@ body {
 
 ul {
     display: flex;
-    flex-wrap: nowrap;
     height: 100%;
     width: 100%;
     justify-content: center;
     padding: 3em;
     border: 1px solid #160801;
-    border-radius: 1em;
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(../BackgroundImg/FondoPiano.jpg);
 }
 
@@ -74,13 +72,18 @@ ul .white:active {
 
 .a,
 .b,
-.c,
 .d,
+.e,
 .f,
 .g,
+.h,
 .black {
-    margin: 0 0 0 -1em
+    margin:  0 -1em 0 0
 }
+.esborrar button:hover{
+    background-color: green;
+}
+
 
 .formulari {
     grid-column-start: line2;
@@ -115,6 +118,8 @@ button {
     border-color: white;
     border: 1px;
     margin-left: 37%;
+    color: white;
+    font-weight: bold;
 }
 
 button a {
@@ -136,6 +141,7 @@ button a {
     width: 100%;
     height: 100%;
 }
+
 .reproduir {
     grid-column-start: line2;
     grid-column-end: line7;
@@ -146,10 +152,11 @@ button a {
     grid-template-rows: [row1] auto [row2] auto [row3] 10px [row4] auto [row5];
     height: 100%;
     width: 100%;
-    
+
     width: 100%;
     height: 100%;
 }
+
 .reproduir h1 {
     grid-column-start: line1;
     grid-column-end: line3;
@@ -158,12 +165,14 @@ button a {
     text-align: center;
     margin-bottom: 1em;
 }
+
 .botoMusica1 {
     grid-column-start: line2;
     grid-column-end: line3;
     grid-row-start: row2;
     grid-row-end: row3;
 }
+
 .botoMusica2 {
     grid-column-start: line2;
     grid-column-end: line3;
@@ -175,8 +184,9 @@ button a {
     display: flex;
     flex-direction: column;
 }
+
 a {
     text-decoration: none;
-    color:rgb(231, 52, 52);
+    color: rgb(231, 52, 52);
     font-weight: bold;
 }

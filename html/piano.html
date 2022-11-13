@@ -12,18 +12,21 @@
 <body>
     <div class="grid">
         <ul class="piano">
-            <li onclick=" nota(174.614)" class="white a"></li>
-            <li onclick=" nota(184.997)" class="black"></li>
-            <li onclick=" nota(195.998)" class="white b"></li>
-            <li onclick=" nota(207.652)" class="black"></li>
-            <li onclick=" nota(220.000)" class="white c"></li>
-            <li onclick=" nota(233.082)" class="black"></li>
-            <li onclick=" nota(246.942)" class="white d"></li>
-            <li onclick=" nota(261.626)" class="white e"></li>
-            <li onclick=" nota(277.183)" class="black"></li>
-            <li onclick=" nota(293.665)" class="white f"></li>
-            <li onclick=" nota(311.127)" class="black"></li>
-            <li onclick=" nota(329.628)" class="white g"></li>
+            <li id="do" class="white a"></li>
+            <li id="do-sust" class="black"></li>
+            <li id="re" class="white b"></li>
+            <li id="re-sust" class="black"></li>
+            <li id="mi" class="white c"></li>
+            <li id="fa" class="white d"></li>
+            <li id="fa-sust" class="black"></li>
+            <li id="sol" class="white e"></li>
+            <li id="sol-sust" class="black"></li>
+            <li id="la" class="white f"></li>
+            <li id="la-sust" class="black"></li>
+            <li id="si" class="white g"></li>
+            <li id="si0" class="black"></li>
+            <li id="do7" class="white h"></li>
+            
         </ul>
 
         <div class="formulari">
@@ -35,20 +38,21 @@
             <div class="reproduir">
                 <h1>RESULTATS:</h1>
                 <div>
-                    <h4>Sant Antoni i el dimoni</h4>
+                    <h4>Merry Christmas</h4>
                     <a href="">Lletra</a>
                 </div>
-                <button class="botoMusica1"><a href="">Esborrar</a></button>
+                <button class="botoMusica1" onclick="reproduirMerryChristmas()">Reproduir canço</button>
                 <div>
                     <h4>La Balanguera</h4>
                     <a href="">Lletra</a>
                 </div>
-                <button class="botoMusica2"><a href="">Esborrar</a></button>
-            
+                <button class="botoMusica2" onclick="reproduirLaBalanguera()">Reproduir canço</button>
+
             </div>
         </div>
     </div>
     <script src="../js/piano.js"></script>
+    <script src="../js/notes.js"></script>
 </body>
 
 </html>
