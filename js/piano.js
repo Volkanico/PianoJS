@@ -1,12 +1,12 @@
 
 let nomNotesTotals = ["do.mp3", "do-sust.mp3", "re.mp3", "re-sust.mp3", "mi.mp3", "fa-sust.mp3", "fa.mp3",
-    "sol.mp3", "sol-sust.mp3", "la.mp3", "la-sust.mp3", "si0.mp3", "si.mp3", "do7.mp3"];
+    "sol.mp3", "sol-sust.mp3", "la.mp3", "la-sust.mp3", "si.mp3", "do7.mp3"];
 
 
 let nomNotes = ["do", "do-sust", "re", "re-sust", "mi", "fa-sust", "fa",
-    "sol", "sol-sust", "la", "la-sust", "si0", "si", "do7"];
+    "sol", "sol-sust", "la", "la-sust", "si", "do7"];
 
-let imgNotes = ["nota1.png", "nota1sust.png", "notaRE.png", "notaREsust.png", "pentagrama.png"];
+let imgNotes = ["nota1.png", "nota1sust.png", "nota2.png", "nota2sust.png", "pentagrama.png"];
 
 let notesTotals = []; //OBJECTES NOTA
 

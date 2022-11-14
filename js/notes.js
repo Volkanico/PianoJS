@@ -9,10 +9,9 @@ var SOL = document.createElement('audio');
 var SOLSUST = document.createElement('audio');
 var LA = document.createElement('audio');
 var LASUST = document.createElement('audio');
-var SI0 = document.createElement('audio');
 var SI = document.createElement('audio');
 var DO7 = document.createElement('audio');
-var audios = [DO, DOSUST, RE, RESUST, MI, FASUST, FA, SOL, SOLSUST, LA, LASUST, SI0, SI, DO7]
+var audios = [DO, DOSUST, RE, RESUST, MI, FASUST, FA, SOL, SOLSUST, LA, LASUST, SI, DO7]
 
 window.onload = function () {
     for (let i = 0; i < notesTotals.length; i++) {
@@ -27,29 +26,32 @@ window.onload = function () {
     }
 }
 
-let audioHappyBirthday = [DO,DO,RE,DO,FA,MI,DO,DO,RE,DO,SOL,FA];
-var audioLaBalanguera = [DO,RE,MI,FA,FA,SOL,SOL,LASUST];
-    var makeCallbackLaBalanguera = function(index) { 
-        return function() {
-            audioLaBalanguera[index].play()
-        }
+let audioHappyBirthday = [DO, DO, RE, DO, FA, MI, DO, DO, RE, DO, SOL, FA];
+var audioLaBalanguera = [DO, RE, MI, FA, FA, SOL, SOL, LASUST];
+var makeCallbackLaBalanguera = function (index) {
+    return function () {
+        audioLaBalanguera[index].play()
     }
-function reproduirLaBalanguera(){
-    for(let i = 0; i < audioLaBalanguera.length; i++) {
-        setInterval(makeCallbackLaBalanguera(i), 1000);            
-      }
+
+}
+function reproduirLaBalanguera() {
+    for (let i = 0; i < audioLaBalanguera.length; i++) {
+        setInterval(makeCallbackLaBalanguera(i), 1000)
+    }
+
 }
 
 
 
-function reproduirHappyBirthday(){
-    for(let i = 0; i < audioHappyBirthday.length; i++) {
-        setInterval(makeCallbackHappyBirthday(i), 1000);            
-      }
-}
 
-var makeCallbackHappyBirthday = function(index) { 
-    return function() {
+var makeCallbackHappyBirthday = function (index) {
+    return function () {
         audioHappyBirthday[index].play()
     }
 }
+function reproduirHappyBirthday() {
+    for (let i = 0; i < audioHappyBirthday.length; i++) {
+        setInterval(makeCallbackHappyBirthday(i), 1000);
+    }
+}
+

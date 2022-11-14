@@ -7,6 +7,6 @@ function login() {
     let finestra;
     finestra = window.open("formulari.html", "Formulari", "width=800,height=500,left=" + ample + ",top=" + altura);
 }
-function tancar(){
+function tancar() {
     window.close();
 }
