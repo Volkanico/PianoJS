@@ -7,18 +7,17 @@ function validarLletraoriginal() {
 }
 
 function validateform() {
-    var traduccio = document.myform.traduccio.value;
-
+    let traduccio = document.myform.traduccio.value;
     let titol = document.myform.titol.value;
-    let titolRexeg = /\b^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/g;
+
     if (titol === null || titol === "") {
         alert("Titol no pot estar buit");
         return false;
     } 
-    console.log(titol)
-    var REGEXtitol = /\w+\s*/g;
-    var myArray = titol.match(REGEXtitol);
-    console.log(myArray)
+    //console.log(titol)
+    let REGEXtitol = /\w+\s*/g;
+    let myArray = titol.match(REGEXtitol);
+    //console.log(myArray)
     if(myArray.length <= 2){
         alert("mes paraules");
         return false;
@@ -32,5 +31,4 @@ function validateform() {
         alert("La lletra original i la traduccio han de coincir")
         return false;
     }
-
 }  

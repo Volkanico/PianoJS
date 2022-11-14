@@ -1,17 +1,17 @@
-var DO = document.createElement('audio');
-var DOSUST = document.createElement('audio');
-var RE = document.createElement('audio');
-var RESUST = document.createElement('audio');
-var MI = document.createElement('audio');
-var FASUST = document.createElement('audio');
-var FA = document.createElement('audio');
-var SOL = document.createElement('audio');
-var SOLSUST = document.createElement('audio');
-var LA = document.createElement('audio');
-var LASUST = document.createElement('audio');
-var SI = document.createElement('audio');
-var DO7 = document.createElement('audio');
-var audios = [DO, DOSUST, RE, RESUST, MI, FASUST, FA, SOL, SOLSUST, LA, LASUST, SI, DO7]
+let DO = document.createElement('audio');
+let DOSUST = document.createElement('audio');
+let RE = document.createElement('audio');
+let RESUST = document.createElement('audio');
+let MI = document.createElement('audio');
+let FASUST = document.createElement('audio');
+let FA = document.createElement('audio');
+let SOL = document.createElement('audio');
+let SOLSUST = document.createElement('audio');
+let LA = document.createElement('audio');
+let LASUST = document.createElement('audio');
+let SI = document.createElement('audio');
+let DO7 = document.createElement('audio');
+let audios = [DO, DOSUST, RE, RESUST, MI, FASUST, FA, SOL, SOLSUST, LA, LASUST, SI, DO7]
 
 window.onload = function () {
     for (let i = 0; i < notesTotals.length; i++) {
@@ -27,8 +27,8 @@ window.onload = function () {
 }
 
 let audioHappyBirthday = [DO, DO, RE, DO, FA, MI, DO, DO, RE, DO, SOL, FA];
-var audioLaBalanguera = [DO, RE, MI, FA, FA, SOL, SOL, LASUST];
-var makeCallbackLaBalanguera = function (index) {
+let audioLaBalanguera = [DO, RE, MI, FA, FA, SOL, SOL, LASUST];
+let makeCallbackLaBalanguera = function (index) {
     return function () {
         audioLaBalanguera[index].play()
     }
@@ -41,9 +41,6 @@ function reproduirLaBalanguera() {
 
 }
 
-
-
-
 var makeCallbackHappyBirthday = function (index) {
     return function () {
         audioHappyBirthday[index].play()
@@ -54,4 +51,3 @@ function reproduirHappyBirthday() {
         setInterval(makeCallbackHappyBirthday(i), 1000);
     }
 }
-
