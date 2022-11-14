@@ -33,7 +33,7 @@ function totesLesNotesObj() {
             notesTotals.push(new Nota(nomNotes[i], sostingut === true, nomArxiu = '../audio/' + nomNotesTotals[i]));
         }
     }
-    console.log(notesTotals)
+    //console.log(notesTotals)
 }
 totesLesNotesObj();
 
