@@ -1,3 +1,4 @@
+"use strict";
 function validarLletraoriginal() {
     let lletraOriginal = document.myform.lletraOriginal.value;
     if (lletraOriginal == null || lletraOriginal == "") {
@@ -28,7 +29,7 @@ function validateform() {
         return false;
     }
     if (traduccio !== document.myform.lletraOriginal.value && document.myform.lang.value === 'ca') {
-        alert("La lletra original i la traduccio han de coincir")
+        alert("La lletra original i la traduccio han de coincidir")
         return false;
     }
 }  

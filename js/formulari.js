@@ -1,4 +1,4 @@
-
+"use strict";
 function login() {
     let ample = window.screen.availWidth;
     let altura = window.screen.availHeight;

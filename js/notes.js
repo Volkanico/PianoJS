@@ -1,3 +1,4 @@
+"use strict";
 let DO = document.createElement('audio');
 let DOSUST = document.createElement('audio');
 let RE = document.createElement('audio');

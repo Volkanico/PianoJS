@@ -1,3 +1,4 @@
+"use strict";
 const santAntoniRegistre = ['Sant Antoni i el dimoni', 'ma',];
 const laBalangueraRegistre = ['La Balanguera', 'ca',];
 const merryChristmasRegistre = ["Merry Christmas", 'en'];
@@ -18,16 +19,16 @@ function registresArr() {
 
 let j;
 function pintarRegistres() {
-    let table = '';
-    table += '<table>';
-    table += '<tr>';
-    table += '<th>Titol</th>';
-    table += '<th>Idioma original</th>';
-    table += '<th>Accions</th>';
-    table += '</tr>';
+    let table = `
+    <table>
+    <tr>
+    <th>Titol</th>
+    <th>Idioma original</th>
+    <th>Accions</th>
+    </tr>`;
     let divTaula = document.querySelector("#table");
     divTaula.innerHTML = table;
-    taula = document.querySelector("table")
+    let taula = document.querySelector("table")
 
 
     for (j = 0; j < registreCanconcsDe100.length; j++) {

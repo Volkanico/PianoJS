@@ -1,4 +1,4 @@
-
+"use strict";
 let nomNotesTotals = ["do.mp3", "do-sust.mp3", "re.mp3", "re-sust.mp3", "mi.mp3", "fa-sust.mp3", "fa.mp3",
     "sol.mp3", "sol-sust.mp3", "la.mp3", "la-sust.mp3", "si.mp3", "do7.mp3"];
 
@@ -53,8 +53,8 @@ function addCerca(nomNota, sostingut) {
 function cercador(partitures) {
     let subconjORDENAT = ["fa", "mi", "do"]; //ENTRADA DE NOTES
 
-    for (var i = 0; i < partitures.length; i++) { //COMPARADOR
-        for (var j = 0; j < partitures[i].length; j++) {
+    for (let i = 0; i < partitures.length; i++) { //COMPARADOR
+        for (let j = 0; j < partitures[i].length; j++) {
             if (subconjORDENAT[0] === partitures[i][j] && subconjORDENAT[1] === partitures[i][j + 1] && subconjORDENAT[2] === partitures[i][j + 2]) {
                 //console.log(partitures[i])
             }
