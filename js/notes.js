@@ -31,8 +31,8 @@ let audioLaBalanguera = [DO, RE, MI, FA, FA, SOL, SOL, LASUST];
 let makeCallbackLaBalanguera = function (index) {
     return function () {
         audioLaBalanguera[index].play()
+       
     }
-
 }
 function reproduirLaBalanguera() {
     for (let i = 0; i < audioLaBalanguera.length; i++) {
