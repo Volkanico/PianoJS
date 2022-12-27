@@ -22,32 +22,75 @@ window.onload = function () {
         notaTecla.addEventListener("click", function () {
             audios[i].play();
         });
-        console.log(audios[i])
+        //console.log(audios[i])
     }
 }
 
 let audioHappyBirthday = [DO, DO, RE, DO, FA, MI, DO, DO, RE, DO, SOL, FA];
 let audioLaBalanguera = [DO, RE, MI, FA, FA, SOL, SOL, LASUST];
 let makeCallbackLaBalanguera = function (index) {
-    return function () {
-        audioLaBalanguera[index].play()
-       
-    }
-}
-function reproduirLaBalanguera() {
-    for (let i = 0; i < audioLaBalanguera.length; i++) {
-        setInterval(makeCallbackLaBalanguera(i), 1000)
-    }
-
+    return audioLaBalanguera[index].play()
 }
 
-var makeCallbackHappyBirthday = function (index) {
-    return function () {
-        audioHappyBirthday[index].play()
-    }
+
+
+
+
+let makeCallbackHappyBirthday = function (index) {
+    return  audioHappyBirthday[index].play()
+    
 }
-function reproduirHappyBirthday() {
-    for (let i = 0; i < audioHappyBirthday.length; i++) {
-        setInterval(makeCallbackHappyBirthday(i), 1000);
-    }
-}
+let num = audioHappyBirthday.length - 1;
+let botoMusicaH = document.querySelector(".botoMusica1").addEventListener('click', function() {
+    let i = 0;
+    let num = audioHappyBirthday.length - 1;
+    let int = setInterval(function(){
+            
+        makeCallbackHappyBirthday(i)
+        i++
+        
+        let time = setTimeout(function (){
+            
+            document.querySelector(".botoMusica1").textContent = num;
+            num--;
+            if(num === 0){
+                
+                document.querySelector(".botoMusica1").textContent = "Reproduir canço";
+            }
+        },1000)
+        if(i === audioHappyBirthday.length){
+            clearTimeout(time)
+            clearInterval(int)
+            
+        }
+        }, 1000)
+      
+        
+})
+
+let botoMusicaB = document.querySelector(".botoMusica2").addEventListener('click', function() {
+    let i = 0;
+    let num = audioLaBalanguera.length - 1;
+    let int = setInterval(function(){
+            
+        makeCallbackLaBalanguera(i)
+        i++
+        
+        let time = setTimeout(function (){
+            
+            document.querySelector(".botoMusica2").textContent = num;
+            num--;
+            if(num === 0){
+                
+                document.querySelector(".botoMusica2").textContent = "Reproduir canço";
+            }
+        },1000)
+        if(i === audioLaBalanguera.length){
+            clearTimeout(time)
+            clearInterval(int)
+            
+        }
+        }, 1000)
+      
+        
+})
