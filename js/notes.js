@@ -85,7 +85,7 @@ let botoMusicaB = document.querySelector(".botoMusica2").addEventListener('click
                 
                 document.querySelector(".botoMusica2").textContent = "Reproduir canço";
             }
-        },1000)
+        },500)
         if(i === audioLaBalanguera.length){
             clearTimeout(time)
             clearInterval(int)

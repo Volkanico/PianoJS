@@ -6,8 +6,7 @@ function validarLletraoriginal() {
         return false;
     }
 }
-
-function validateform() {
+document.querySelector("form").addEventListener('submit', function() {
     let traduccio = document.myform.traduccio.value;
     let titol = document.myform.titol.value;
 
@@ -32,4 +31,4 @@ function validateform() {
         alert("La lletra original i la traduccio han de coincidir")
         return false;
     }
-}  
+})  
