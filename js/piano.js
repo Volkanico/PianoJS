@@ -48,6 +48,7 @@ function addCerca(nomNota, sostingut) {
     } else {
         cerca.push(new Nota(nomNota, sostingut === true));
     }
+    //Funció que, passat el nom d'una nota i el tipus (si és sostingut o no), afegirà un objecte "Nota" a un array de cerca (variable cerca de l'esquelet).
 }
 
 function cercador(partitures) {
@@ -57,6 +58,7 @@ function cercador(partitures) {
         for (let j = 0; j < partitures[i].length; j++) {
             if (subconjORDENAT[0] === partitures[i][j] && subconjORDENAT[1] === partitures[i][j + 1] && subconjORDENAT[2] === partitures[i][j + 2]) {
                 //console.log(partitures[i])
+                //
             }
         }
     }
