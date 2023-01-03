@@ -4,7 +4,9 @@ class PartituraService {
         
     }
 }
-
+//guardarNotaANotesTotals(nomNotesTotals);
+//console.log(cerca);
+//cercador(partitures);
 
 const santAntoniRegistre = ['Sant Antoni i el dimoni', 'ma',];
 const laBalangueraRegistre = ['La Balanguera', 'ca',];
