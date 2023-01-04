@@ -1,4 +1,5 @@
 'use strict';
+
 document.querySelector("#botoLogIn").addEventListener('click', function() {
     let ample = window.screen.availWidth;
     let altura = window.screen.availHeight;
@@ -7,10 +8,7 @@ document.querySelector("#botoLogIn").addEventListener('click', function() {
     let finestra;
     finestra = window.open("formulari.html", "Formulari", "width=800,height=500,left=" + ample + ",top=" + altura);
 });
-document
-document.querySelector("button").addEventListener('click', function() {
-    window.close();
-});
+
 
 function pintarCapceleraTaula(){
     let table = `
@@ -29,7 +27,8 @@ function pintarCapceleraTaula(){
 }
 
 
-function pintarTaula(taula){
+function pintarTaula(taula, index){
+    let j = index;
     let tr = document.createElement("tr")
     taula.appendChild(tr)
     tr.setAttribute("id",j)

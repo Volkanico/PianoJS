@@ -4,28 +4,36 @@ class NotaService {
         
     }
 }
+
+
+
+
+
+
+
+
+
 let nomNota;
 let sostingut = false;
 let nomArxiu;
-function Nota(nomNota, sostingut) {
+function Nota(nomNota, sostingut) { //NOTA DE TEMA 1-3
     this.nomNota = nomNota;
     this.sostingut = sostingut;
     this.nomArxiu = nomArxiu;
-    //PlAY()
+    //Play()
     
     //HA DE CERCAR PER NOM DE NOTA
 }
 let nomNotes = ["do", "do-sust", "re", "re-sust", "mi", "fa-sust", "fa",
     "sol", "sol-sust", "la", "la-sust", "si", "do7"];
-let nomNotesTotals = ["do.mp3", "do-sust.mp3", "re.mp3", "re-sust.mp3", "mi.mp3", "fa-sust.mp3", "fa.mp3",
-    "sol.mp3", "sol-sust.mp3", "la.mp3", "la-sust.mp3", "si.mp3", "do7.mp3"];
+
 let notesTotals = []; //OBJECTES NOTA
 function totesLesNotesObj() {
     for (let i = 0; i < nomNotes.length; i++) {
         if (nomNotes[i].substr(-5) === "-sust") {
-            notesTotals.push(new Nota(nomNotes[i], sostingut === false, nomArxiu = '../audio/' + nomNotesTotals[i]));
+            notesTotals.push(new Nota(nomNotes[i], sostingut === false, nomArxiu = '../audio/' + nomNotes[i] + '.mp3'));
         } else {
-            notesTotals.push(new Nota(nomNotes[i], sostingut === true, nomArxiu = '../audio/' + nomNotesTotals[i]));
+            notesTotals.push(new Nota(nomNotes[i], sostingut === true, nomArxiu = '../audio/' + nomNotes[i] + '.mp3'));
         }
     }
     //console.log(notesTotals)
