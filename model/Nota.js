@@ -1,5 +1,5 @@
 "use strict";
-class Nota {
+export class Nota {
     id;
     nom;
     alteracio;

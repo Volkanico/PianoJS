@@ -1,49 +1,71 @@
 "use strict";
-class PartituraService {
-    constructor(){
-        
-    }
+//import { Partitura } from "../model/Partitura";
+export class PartituraService {
+    constructor() {
 
-getPartitures() {
-    pintarCapceleraTaula()
-    let taula = document.querySelector("table")
-    for ( let j = 0; j < registreCanconcsDe100.length; j++) {
-      pintarTaula(taula, j);
     }
+    laBalanguera = ["do", "re", "mi", "fa", "fa", "sol", "sol", "la-sust"];
+    happyBirthday = ["do", "do", "re", "do", "fa", "mi", "do", "do", "re", "do", "sol", "fa"];
+    partitures = [laBalanguera, happyBirthday];
+    cerca = [];
+    santAntoniRegistre = ['Sant Antoni i el dimoni', 'ma',];
+    laBalangueraRegistre = ['La Balanguera', 'ca',];
+    merryChristmasRegistre = ["Merry Christmas", 'en'];
+    frereJacquesRegistre = ["Frère Jacques", 'ca'];
+    registreCanconcsDe100 = [];
 
-}
-//-------------------------------------------------------------------------------------------------------------------------
-
-addCerca(nomNota, sostingut) {
-    if (nomNota.substr(-5) === "-sust") {
-        cerca.push(nomNota/*,sostingut*/); //ARA COMPROVA L'ARRAY, DESPRES HO HA DE FER L'OBJECTE NOTA
-    } else {
-        cerca.push(nomNota/*,sostingut*/);
+    registresArr(registreCanconcsDe100) {
+        registreCanconcsDe100.push(laBalangueraRegistre);
+        registreCanconcsDe100.push(merryChristmasRegistre);
+        registreCanconcsDe100.push(frereJacquesRegistre);
+        registreCanconcsDe100.push(laBalangueraRegistre);
+        registreCanconcsDe100.push(merryChristmasRegistre);
+        registreCanconcsDe100.push(frereJacquesRegistre);
+        for (let i = 0; i < 98; i++) {
+            registreCanconcsDe100.push(santAntoniRegistre);
+        }
     }
-    //Funció que, passat el nom d'una nota i el tipus (si és sostingut o no), afegirà un objecte "Nota" a un array de cerca (variable cerca de l'esquelet).
-}
-//-------------------------------------------------------------------------------------------------------------------------
-cercador(partitures) {
+    async getPartitures(){
+        pintarCapceleraTaula();
+        const partituresFetch = await fetch('http://localhost:8080/piano/nologin/score/list',{
+            method:'post',
+            headers: {
+                'Content-Type': 'application/json'
+              }
+        })
+    }
+   /*getPartitures() {
+        pintarCapceleraTaula()
+        let taula = document.querySelector("table")
+        for ( let j = 0; j < registreCanconcsDe100.length; j++) {
+          pintarTaula(taula, j,registreCanconcsDe100);
+        }
     
+    }*/
+    //-------------------------------------------------------------------------------------------------------------------------
 
-    for (let i = 0; i < partitures.length; i++) { //COMPARADOR
-        for (let j = 0; j < partitures[i].length; j++) {
-            if (cerca[0] === partitures[i][j] && cerca[1] === partitures[i][j + 1] && cerca[2] === partitures[i][j + 2]) {
-                //console.log(partitures[i])
-                //console.log(cerca) 
-                
+    addCerca(nomNota, sostingut) {
+        if (nomNota.substr(-5) === "-sust") {
+            cerca.push(nomNota/*,sostingut*/); //ARA COMPROVA L'ARRAY, DESPRES HO HA DE FER L'OBJECTE NOTA
+        } else {
+            cerca.push(nomNota/*,sostingut*/);
+        }
+        //Funció que, passat el nom d'una nota i el tipus (si és sostingut o no), afegirà un objecte "Nota" a un array de cerca (variable cerca de l'esquelet).
+    }
+    //-------------------------------------------------------------------------------------------------------------------------
+    cercador(partitures) {
+        for (let i = 0; i < partitures.length; i++) { //COMPARADOR
+            for (let j = 0; j < partitures[i].length; j++) {
+                if (cerca[0] === partitures[i][j] && cerca[1] === partitures[i][j + 1] && cerca[2] === partitures[i][j + 2]) {
+                    //console.log(partitures[i])
+                    //console.log(cerca) 
+
+                }
             }
         }
     }
-}
 
-obrirPrompt(index) {
-    if (window.confirm("Està segur que vol esborrar l'element? " + index)) {
-        alert("S'ha esborrat l'element " + index)
-        document.getElementById(index).remove();
-        //event listener 
-    }else{alert("S'ha cancelat l'acció")}
-}
+    
 }
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -82,7 +104,7 @@ let partituraService = new PartituraService();
     partituraService.addCerca('re', false); //COMPROVACIO CORRECTE
     partituraService.addCerca('mi', false); //COMPROVACIO CORRECTE
     partituraService.cercador(partitures);
-    
-  })();
+
+})();
 
 

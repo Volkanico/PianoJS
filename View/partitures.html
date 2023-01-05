@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/partitures.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+
 <body class="grid">
     <header>
         <h2>Score Finder</h2>
         <div>
-        <button id="botoPartitures"><a href="">Partitures</a></button>
-        <button id="botoLogIn"><a href="">Log in</a></button>
-    </div>
+            <button id="botoPartitures"><a href="">Partitures</a></button>
+            <button id="botoLogIn"><a href="">Log in</a></button>
+        </div>
     </header>
     <button class="nuevaPartitura"><a href="">Nova partitura</a></button>
     <div id="table"></div>
 
 
 
-
+<script src="../Service/GoogleService.js"></script>
     <script src="./ViewPartitures.js"></script>
-    <script src="../Service/PartituraService.js"></script>
-   
-    
+    <script type="module" src="../Service/PartituraService.js">
+        import {PartituraService} from '../Service/PartituraService'
+
+        let partituraService = new PartituraService();
+       
+
+
+        
+
+        (() => {
+            registresArr();
+            partituraService.getPartitures();
+            partituraService.addCerca('do', false); //COMPROVACIO CORRECTE //CERCAR laBalanguera  
+            partituraService.addCerca('re', false); //COMPROVACIO CORRECTE
+            partituraService.addCerca('mi', false); //COMPROVACIO CORRECTE
+            partituraService.cercador(partitures);
+
+        })();
+    </script>
+
+
 </body>
+
 </html>

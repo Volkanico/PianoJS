@@ -1,5 +1,5 @@
 "use strict";
-class Partitura {
+export class Partitura {
     id;
     titol;
     idiomaOriginal;
