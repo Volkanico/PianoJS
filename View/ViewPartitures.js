@@ -29,23 +29,21 @@ function obrirPrompt(index) {
     if (window.confirm("Està segur que vol esborrar l'element? " + index)) {
         alert("S'ha esborrat l'element " + index)
         document.getElementById(index).remove();
-        //event listener 
     } else { alert("S'ha cancelat l'acció") }
 }
 
-function pintarTaula(taula, index, array){
-    let j = index;
+function pintarTaula(taula, titol, idioma, index){
     let tr = document.createElement("tr")
     taula.appendChild(tr)
-    tr.setAttribute("id",j)
+    tr.setAttribute("id",index)
     let td1 = document.createElement("td")
     let td2 = document.createElement("td")
     let td3 = document.createElement("td")
     tr.appendChild(td1)
     tr.appendChild(td2)
     tr.appendChild(td3)
-    td1.textContent = array[j][0] //PINTAR REGISTRE NOU
-    td2.textContent = array[j][1] //PINTAR REGISTRE NOU
+    td1.textContent = titol //PINTAR REGISTRE NOU
+    td2.textContent = idioma //PINTAR REGISTRE NOU
     let basura = document.createElement("button")
     basura.addEventListener("click", function () {
         obrirPrompt(tr.getAttribute("id"))

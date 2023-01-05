@@ -1,5 +1,5 @@
 "use strict";
-//import { Partitura } from "../model/Partitura";
+import { Partitura } from "../model/Partitura.js";
 export class PartituraService {
     constructor() {
 
@@ -8,33 +8,37 @@ export class PartituraService {
     happyBirthday = ["do", "do", "re", "do", "fa", "mi", "do", "do", "re", "do", "sol", "fa"];
     partitures = [laBalanguera, happyBirthday];
     cerca = [];
-    santAntoniRegistre = ['Sant Antoni i el dimoni', 'ma',];
-    laBalangueraRegistre = ['La Balanguera', 'ca',];
-    merryChristmasRegistre = ["Merry Christmas", 'en'];
-    frereJacquesRegistre = ["Frère Jacques", 'ca'];
-    registreCanconcsDe100 = [];
-
-    registresArr(registreCanconcsDe100) {
-        registreCanconcsDe100.push(laBalangueraRegistre);
-        registreCanconcsDe100.push(merryChristmasRegistre);
-        registreCanconcsDe100.push(frereJacquesRegistre);
-        registreCanconcsDe100.push(laBalangueraRegistre);
-        registreCanconcsDe100.push(merryChristmasRegistre);
-        registreCanconcsDe100.push(frereJacquesRegistre);
-        for (let i = 0; i < 98; i++) {
-            registreCanconcsDe100.push(santAntoniRegistre);
-        }
-    }
+    
     async getPartitures(){
         pintarCapceleraTaula();
-        const partituresFetch = await fetch('http://localhost:8080/piano/nologin/score/list',{
-            method:'post',
-            headers: {
-                'Content-Type': 'application/json'
-              }
-        })
+        const promeses = [];
+            const f = fetch("https://theteacher.codiblau.com/piano/nologin/score/list", {
+                method:'post',
+                body:""
+            });
+            promeses.push(f);
+        
+        let taula = document.querySelector("table")
+        const allPromeses = Promise.all(promeses)
+        allPromeses.then(arr => {
+            const promeses2 = [];
+            for (let a of arr) {
+                promeses2.push(a.json());
+            }
+            Promise.all(promeses2).then(arr2 => {
+                let part = [];
+                for (let a2 of arr2) {
+                    console.log(part)
+                    for(let i = 0; i < a2.length; i++){
+                        part.push( new Partitura(a2[i].idpartitura, a2[i].titol, a2[i].idiomaoriginal, a2[i].idiomatraduccio, a2[i].lletraoriginal, a2[i].lletratraduccio, a2[i].notes))
+                        pintarTaula(taula, part[i].titol, part[i].idiomaoriginal, a2[i].idpartitura)
+                    }
+                    //console.log(part)
+                }
+            })
+        })    
     }
-   /*getPartitures() {
+   /*getPartitures() { //ANTIC GETPARTITURES
         pintarCapceleraTaula()
         let taula = document.querySelector("table")
         for ( let j = 0; j < registreCanconcsDe100.length; j++) {
@@ -64,47 +68,22 @@ export class PartituraService {
             }
         }
     }
-
-    
 }
-//-------------------------------------------------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 
 
 let laBalanguera = ["do", "re", "mi", "fa", "fa", "sol", "sol", "la-sust"];
 let happyBirthday = ["do", "do", "re", "do", "fa", "mi", "do", "do", "re", "do", "sol", "fa"];
 let partitures = [laBalanguera, happyBirthday];
 let cerca = [];
-const santAntoniRegistre = ['Sant Antoni i el dimoni', 'ma',];
-const laBalangueraRegistre = ['La Balanguera', 'ca',];
-const merryChristmasRegistre = ["Merry Christmas", 'en'];
-const frereJacquesRegistre = ["Frère Jacques", 'ca'];
-const registreCanconcsDe100 = [];
-
-function registresArr() {
-    registreCanconcsDe100.push(laBalangueraRegistre);
-    registreCanconcsDe100.push(merryChristmasRegistre);
-    registreCanconcsDe100.push(frereJacquesRegistre);
-    registreCanconcsDe100.push(laBalangueraRegistre);
-    registreCanconcsDe100.push(merryChristmasRegistre);
-    registreCanconcsDe100.push(frereJacquesRegistre);
-    for (let i = 0; i < 98; i++) {
-        registreCanconcsDe100.push(santAntoniRegistre);
-    }
-}
-
 
 let partituraService = new PartituraService();
-
 (() => {
-    registresArr();
     partituraService.getPartitures();
     partituraService.addCerca('do', false); //COMPROVACIO CORRECTE //CERCAR laBalanguera  
     partituraService.addCerca('re', false); //COMPROVACIO CORRECTE
     partituraService.addCerca('mi', false); //COMPROVACIO CORRECTE
     partituraService.cercador(partitures);
-
 })();
 
 
