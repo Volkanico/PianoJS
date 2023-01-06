@@ -1,11 +1,19 @@
 "use strict";
-
+import { PartituraService } from "../Service/PartituraService.js";
 export class ViewPartitura {
     constructor(){
 
     }
+    partituraService = new PartituraService();
+
+    posarRegistresDePartitura(idiomaoriginal,idiomatraduccio, idpartitura, lletraoriginal, lletratraduccio, notes, titol){
+        let idpart = document.querySelector('input:nth-child(1)')
+        console.log(idiomaoriginal,idiomatraduccio, idpartitura, lletraoriginal, lletratraduccio, notes, titol)
+    }
     
-    
+    inciar(){
+        this.posarRegistresDePartitura
+    }
     
     posarIdHidden (){
         let idHidden = document.createElement('input');

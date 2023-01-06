@@ -33,11 +33,13 @@
   <script type="module">
     import { GoogleService } from '../Service/GoogleService.js'
     import { ViewPartitura } from '../View/ViewPartitura.js'
+    import {PartituraService} from '../Service/PartituraService.js'
     let google = new GoogleService();
     let viewPartitura = new ViewPartitura();
-
+    let partitura = new PartituraService();
 
     (() => {
+      
       google.getIdiomes();
       document.querySelector("form").addEventListener('submit', function () {
       viewPartitura.validar();
@@ -54,6 +56,17 @@
           'alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
       });
+      //console.log(localStorage)
+      window.onload = function (){
+        document.querySelector('#id').innerHTML = localStorage.getItem('id')
+        document.querySelector('input:nth-child(4)').textContent = localStorage.getItem('titol')
+        document.querySelector('option').innerHTML = localStorage.getItem('idiomaOrig')
+        document.querySelector('textarea:nth-child(11)').innerHTML = localStorage.getItem('lletraOrig')
+        document.querySelector('textarea:nth-child(16)').innerHTML = localStorage.getItem('lletraTrad')
+        
+      }
+      
+      
     })();
   </script>
 </body>

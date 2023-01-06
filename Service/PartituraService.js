@@ -1,6 +1,7 @@
 "use strict";
 import { Partitura } from "../model/Partitura.js";
 import { ViewPartitures } from "../View/ViewPartitures.js";
+import { ViewPartitura } from "../View/ViewPartitura.js";
 export class PartituraService {
     constructor() {}
     
@@ -8,21 +9,28 @@ export class PartituraService {
     async getPartituraById(id){
     console.log(id) //ARRIBA LA ID PER PARAMETRE
         
-        let data = {
-            id:id
-            
-          };
-          
+        let data = {id:id};
           let response = await fetch('https://theteacher.codiblau.com/piano/nologin/score/get', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-          });
+          })
+          let a = await response.json(); //RECULL LA PARTITURA DEL SERVIDOR INDICADA CORRECTAMENT
+          console.log(a) //PARTITURA DEL SERVIDOR
+          let viewPartitura = new ViewPartitura();
+           window.location.href = './partitura.html';
+           viewPartitura.posarRegistresDePartitura(a.idiomaoriginal,a.idiomatraduccio, a.idpartitura, a.lletraoriginal, a.lletratraduccio, a.notes, a.titol);
+          localStorage.setItem('idiomaOrig', a.idiomaoriginal)
+          localStorage.setItem('idiomaTrad', a.idiomatraduccio)
+          localStorage.setItem('id', a.idpartitura)
+          localStorage.setItem('lletraOrig', a.lletraoriginal)
+          localStorage.setItem('lletraTrad', a.lletratraduccio)
+          localStorage.setItem('notes', a.notes)
+          localStorage.setItem('titol', a.titol)
+           console.log(localStorage)
           
-          let result = await response.json();
-          alert(result.message);
     }
    
 
@@ -49,7 +57,7 @@ export class PartituraService {
                     for(let i = 0; i < a2.length; i++){
                         part.push( new Partitura(a2[i].idpartitura, a2[i].titol, a2[i].idiomaoriginal, a2[i].idiomatraduccio, a2[i].lletraoriginal, a2[i].lletratraduccio, a2[i].notes))
                         let viewPartitures = new ViewPartitures();
-                        viewPartitures.pintarTaula(taula, part[i].titol, part[i].idiomaoriginal, a2[i].idpartitura)
+                        viewPartitures.pintarTaula(taula, part[i].titol, part[i].idiomaOriginal, a2[i].idpartitura)
                     } 
                 }
                 for(let i = 0; i < part.length;i++){

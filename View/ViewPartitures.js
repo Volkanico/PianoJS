@@ -67,6 +67,7 @@ export class ViewPartitures {
             let id = tr.getAttribute("id");
             let partituraService = new PartituraService();
             partituraService.getPartituraById(id);
+           
         });
     
         let imatgeeditar = document.createElement("img")
