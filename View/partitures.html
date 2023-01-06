@@ -25,21 +25,27 @@
 
 
 
-    <script src="./ViewPartitures.js"></script>
+    
     <script type="module">
+       import {ViewPartitures} from './ViewPartitures.js'
         import { PartituraService } from '../Service/PartituraService.js'
+        let viewPartitures = new ViewPartitures();
         let partituraService = new PartituraService();
+        
         //PER FER LA COMPARACIO DE ADDCERCA AMB CERCADOR (ANTERIOR)
         let laBalanguera = ["do", "re", "mi", "fa", "fa", "sol", "sol", "la-sust"];
         let happyBirthday = ["do", "do", "re", "do", "fa", "mi", "do", "do", "re", "do", "sol", "fa"];
         let partitures = [laBalanguera, happyBirthday];
         let cerca = [];
         (() => {
+            viewPartitures.pintarCapceleraTaula();
             partituraService.getPartitures();
+            
             partituraService.addCerca('do', false,cerca); //COMPROVACIO CORRECTE //CERCAR laBalanguera  
             partituraService.addCerca('re', false,cerca); //COMPROVACIO CORRECTE
             partituraService.addCerca('mi', false,cerca); //COMPROVACIO CORRECTE
             partituraService.cercador(partitures,cerca);
+            viewPartitures.botoLogin()
 
         })();
     </script>

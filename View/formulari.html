@@ -19,7 +19,12 @@
         <button type="submit" >Entrar</button>
     </form>
 
-    <script src="../View/ViewLogin.js"></script>
+    <script type="module">
+        import {ViewLogin} from './ViewLogin.js'
+        let viewLogin = new ViewLogin();
+
+         viewLogin.closeLogin();
+    </script>
     
 </body>
 

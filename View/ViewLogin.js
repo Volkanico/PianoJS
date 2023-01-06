@@ -1,5 +1,13 @@
 'use strict';
+export class ViewLogin {
+    constructor(){
 
-document.querySelector("button").addEventListener('click', function() {
-    window.close();
-});
+    }
+    closeLogin(){
+        document.querySelector("button").addEventListener('click', function() {
+            window.close();
+        });
+    }
+    
+}
+

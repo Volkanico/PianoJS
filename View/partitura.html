@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../css/partitura.css">
 </head>
 
 <body>
@@ -21,22 +22,40 @@
     </select><br>
 
     <label for="lletraOriginal">Lletra original:</label><br>
-    <textarea type="text" name="lletraOriginal" rows="20" cols="50"></textarea><br>
+    <textarea type="text" name="lletraOriginal" rows="10" cols="40"></textarea><br>
 
     <label for="traduccio">Traduccio al català:</label><br>
-    <textarea type="text" name="traduccio" rows="20" cols="50"></textarea><br>
+    <textarea type="text" name="traduccio" rows="10" cols="40"></textarea><br>
 
     <input type="submit" value="Submit">
   </form>
-  <script src="../View/ViewFormulari.js"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script type="module">
-    import {GoogleService} from '../Service/GoogleService.js'
+    import { GoogleService } from '../Service/GoogleService.js'
+    import { ViewPartitura } from '../View/ViewPartitura.js'
     let google = new GoogleService();
+    let viewPartitura = new ViewPartitura();
+
+
     (() => {
-            google.getIdiomes();
-            
-        })();
-</script>
+      google.getIdiomes();
+      document.querySelector("form").addEventListener('submit', function () {
+      viewPartitura.validar();
+      })
+      viewPartitura.posarIdHidden();
+      tinymce.init({
+        selector: 'textarea',
+        plugins: [
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount'
+        ],
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+          'alignleft aligncenter alignright alignjustify | ' +
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+      });
+    })();
+  </script>
 </body>
 
 </html>

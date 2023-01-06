@@ -1,10 +1,33 @@
 "use strict";
 import { Partitura } from "../model/Partitura.js";
+import { ViewPartitures } from "../View/ViewPartitures.js";
 export class PartituraService {
     constructor() {}
     
+    
+    async getPartituraById(id){
+    console.log(id) //ARRIBA LA ID PER PARAMETRE
+        
+        let data = {
+            id:id
+            
+          };
+          
+          let response = await fetch('https://theteacher.codiblau.com/piano/nologin/score/get', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+          
+          let result = await response.json();
+          alert(result.message);
+    }
+   
+
     async getPartitures(){
-        pintarCapceleraTaula();
+        
         const promeses = [];
             const f = await fetch("https://theteacher.codiblau.com/piano/nologin/score/list", {
                 method:'post',
@@ -25,20 +48,19 @@ export class PartituraService {
                     console.log(part)
                     for(let i = 0; i < a2.length; i++){
                         part.push( new Partitura(a2[i].idpartitura, a2[i].titol, a2[i].idiomaoriginal, a2[i].idiomatraduccio, a2[i].lletraoriginal, a2[i].lletratraduccio, a2[i].notes))
-                        pintarTaula(taula, part[i].titol, part[i].idiomaoriginal, a2[i].idpartitura)
-                    } //console.log(part)
+                        let viewPartitures = new ViewPartitures();
+                        viewPartitures.pintarTaula(taula, part[i].titol, part[i].idiomaoriginal, a2[i].idpartitura)
+                    } 
                 }
+                for(let i = 0; i < part.length;i++){
+                    part[i].notes.sort() //ORDENAR NOTES DE LES PARTITURES
+                }
+                
+                
             })
         })    
     }
-   /*getPartitures() { //ANTIC GETPARTITURES
-        pintarCapceleraTaula()
-        let taula = document.querySelector("table")
-        for ( let j = 0; j < registreCanconcsDe100.length; j++) {
-          pintarTaula(taula, j,registreCanconcsDe100);
-        }
-    
-    }*/
+   
     //-------------------------------------------------------------------------------------------------------------------------
 
     addCerca(nomNota, sostingut, arrayNotes) {
@@ -60,6 +82,7 @@ export class PartituraService {
             }
         }
     }
+    
 }
 
 

@@ -13,6 +13,11 @@ export class GoogleService {
     constructor() { }
 
     partituresTotals = []
+
+    
+
+
+    
     getIdiomes() {
         const promeses = [];
         const f = fetch("https://theteacher.codiblau.com/piano/nologin/google/translate/languages", {
@@ -20,8 +25,6 @@ export class GoogleService {
             body: ""
         });
         promeses.push(f);
-
-       
         const allPromeses = Promise.all(promeses)
         allPromeses.then(arr => {
             const promeses2 = [];
@@ -36,16 +39,17 @@ export class GoogleService {
                         part.push(new Idioma(a2[i].code, a2[i].name))
                         
                     } console.log(part)
-                    idiomes(part)
+                    for(let idioma of part){
+                        let option = document.createElement('option');
+                        option.setAttribute('value', idioma.codi)
+                        option.textContent = idioma.nom;
+                        document.querySelector('select').appendChild(option)
+                        console.log(idioma.code)
+                    }
                     return part;
                     
                 }
-
-                
-                
-                
             })
         })
     }
-
 }
