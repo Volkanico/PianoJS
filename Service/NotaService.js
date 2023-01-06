@@ -1,6 +1,6 @@
 "use strict";
 import { Nota } from "../model/Nota";
-class NotaService {
+export class NotaService {
     constructor(){
         
     }

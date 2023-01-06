@@ -30,9 +30,12 @@
   </form>
   <script src="../View/ViewFormulari.js"></script>
   <script type="module">
-    import {GoogleService} from '../Service/GoogleService'
+    import {GoogleService} from '../Service/GoogleService.js'
     let google = new GoogleService();
-    
+    (() => {
+            google.getIdiomes();
+            
+        })();
 </script>
 </body>
 

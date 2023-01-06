@@ -1,10 +1,20 @@
 "use strict";
 
-
-function validarLletraoriginal() {
-    
+function idiomes(part){
+    for(let idioma of part){
+        let option = document.createElement('option');
+        option.setAttribute('value', idioma.codi)
+        option.textContent = idioma.nom;
+        document.querySelector('select').appendChild(option)
+        console.log(idioma.code)
+    }
 }
-document.querySelector("form").addEventListener('submit', function() {
+
+
+
+
+function validar() {
+
     let traduccio = document.myform.traduccio.value;
     let titol = document.myform.titol.value;
     let lletraOriginal = document.myform.lletraOriginal.value;
@@ -36,4 +46,8 @@ document.querySelector("form").addEventListener('submit', function() {
         window.location= "https://iesmanacor.cat"
         return true;
     }
-})  
+}  
+
+document.querySelector("form").addEventListener('submit', function() {
+    validar();
+})
